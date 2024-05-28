@@ -7,7 +7,7 @@
 
 body {
   background-color: rgb(34, 25, 158);
-  height: 120vh;
+  height: 90vh;
 }
 #gif {
   margin-left: auto;
@@ -17,7 +17,7 @@ body {
   border-radius: 13px;
 }
 main {
-  width: 350px;
+  width: 380px;
   border-radius: 20px;
   background-color: #f3f3f3;
   margin-top: 8px;
@@ -115,12 +115,12 @@ section:hover {
   padding-bottom: 5px;
 }
 #pdois {
-  font-size: 34px;
+  font-size: 32px;
 }
 footer {
   color: #d2d1d4;
   width: 100%;
-  height: 30px;
+  height: 10px;
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -158,6 +158,9 @@ a:link {
   }
 }
 @media (max-width: 330px) {
+    #gif {
+        width: 190px;
+      }
   main {
     width: 250px;
     margin-top: -20px;
@@ -168,7 +171,7 @@ a:link {
         width: 180px;
       }
     main {
-    width: 220px;
+    width: 215px;
     margin-top: -20px;
   }
 }
@@ -197,6 +200,7 @@ a:link {
 
 .bg3 {
   animation-duration: 12s;
+  height: 90vw;
 }
 
 .content {
