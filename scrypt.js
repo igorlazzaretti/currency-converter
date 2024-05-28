@@ -43,11 +43,6 @@ async function funcaoCliquei() {
   const dolarReal = data.BRLUSD.high
   const dolarEuro = data.EURUSD.high
   const dolarBitcoin = data.BTCUSD.high
-
-  const bitcoinReal = data.BRLBTC
-  const bitcoinDolar = data.USDBTC
-  const bitcoinEuro = data.EURBTC
-
   
    // REAL
   // Real para Dollar //
@@ -239,7 +234,7 @@ async function funcaoCliquei() {
       style: 'currency',
       currency: 'BIT',
     }).format(varValorDigitadonoInput.value)
-    const varResultadoBD = varValorDigitadonoInput.value / bitcoinDolar
+    const varResultadoBD = dolarBitcoin / varValorDigitadonoInput.value
     varpdois.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
