@@ -31,32 +31,39 @@ const varValorDigitadonoInput = document.querySelector(".inputdigitado")
 
 const varbotaoConverter = document.querySelector("button")
 varbotaoConverter.addEventListener("click", funcaoCliquei) 
-function funcaoCliquei() { 
+async function funcaoCliquei() { 
 
  
     const varSelectPara = document.querySelector("#selectPara")
 
+    const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL").then(response => response.json())
+    
+    const realDolar = data.USDBRL.high;
+    const realEuro = data.EURBRL.high;
+    const realBitcoin = data.BTCBRL.high;
+
+       // Real para Dollar
     if (varSelectDe.value == "real" && varSelectPara.value == "doleta"){        
         varpum.innerHTML = new Intl.NumberFormat("pt-BR",{ style: "currency", currency:"BRL"}).format(varValorDigitadonoInput.value)
-        const varResultadoRD = varValorDigitadonoInput.value / vardolarHoje
+        const varResultadoRD = varValorDigitadonoInput.value / realDolar
         varpdois.innerHTML = new Intl.NumberFormat("en-US", {style:"currency", currency:"USD"}).format(varResultadoRD)
         varNomeMoedaA.innerHTML = "Real"
         varNomeMoedaB.innerHTML = "Dólar"
         varimagemUm.src = "./assets/midia/imgBrasil.png"
         varimagemDois.src = "./assets/midia/imgDollar.png"   }
-
+       // Real para Euro
     if (varSelectDe.value == "real" && varSelectPara.value == "euro"){
         varpum.innerHTML = new Intl.NumberFormat("pt-BR",{ style: "currency", currency:"BRL"}).format(varValorDigitadonoInput.value)
         varpdois.innerHTML = new Intl.NumberFormat("de-DE", {style:"currency", currency:"EUR"}).format
-        (varValorDigitadonoInput.value / vareuroHoje)
+        (varValorDigitadonoInput.value / realEuro)
         varNomeMoedaA.innerHTML = "Real"
         varNomeMoedaB.innerHTML = "Euro"
         varimagemUm.src = "./assets/midia/imgBrasil.png"
         varimagemDois.src = "./assets/midia/imgEuro.png"      }
-
+       // Real para Bitcoin
     if (varSelectDe.value == "real" && varSelectPara.value == "bitcoin"){
        varpum.innerHTML = new Intl.NumberFormat("pt-BR",{ style: "currency", currency:"BRL"}).format(varValorDigitadonoInput.value)
-       varpdois.innerHTML = new Intl.NumberFormat("de-DE", {style:"currency", currency:"BIT",maximumFractionDigits:10, }).format(varValorDigitadonoInput.value / varbitcoinHoje)
+       varpdois.innerHTML = new Intl.NumberFormat("de-DE", {style:"currency", currency:"BIT",maximumFractionDigits:10, }).format(varValorDigitadonoInput.value / realBitcoin)
        varNomeMoedaB.innerHTML = "Bitcoin"
        varNomeMoedaA.innerHTML = "Real"
        varimagemUm.src = "./assets/midia/imgBrasil.png"

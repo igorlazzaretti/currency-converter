@@ -14,55 +14,72 @@
 </head>
 
 <body>
-    <iframe id="gif" src="https://giphy.com/embed/QVgU7wEY0RlV6" width="370" height="171" frameBorder="0"
-        class="giphy-embed" allowFullScreen alt="gif-logo"></iframe>
-    <main>
-        <label>
-            Converter <b>de</b>:
-            <select id="selectDE">
-                <option value="real">R$ Real Brasileiro</option>
-                <option value="doleta">US$ Dollar Americano</option>
-                <option value="euro">€ Euro </option>
-                <option value="bitcoin">฿ Bitcoin</option>
-            </select>
-        </label>
-        <label>
-            Converter <b>para</b>:
-            <select id="selectPara">
-                <option value="doleta">US$ Dollar Americano</option>
-                <option value="euro">€ Euro </option>
-                <option value="bitcoin">฿ Bitcoin</option>
-                <option value="real">R$ Real Brasileiro</option>
-            </select>
-        </label>
-        <label>
-            Valor
-            <input class="inputdigitado" placeholder="R$ 10000.00" />
-        </label>
 
-        <button>Converter</button>
+    <ul class="background">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
 
-        <section>
-            <div class="resultado">
-                <img id="bandeiraum" src="./assets/midia/imgBrasil.png" alt="logo-moeda-a-converter">
-                <p class="NomedaMoedaA">Real</p>
-                <p class="Valor" id="pum">R$0,00</p>
-            </div>
-            <div>
-                <img id="setinha" src="./assets/midia/setinha.png" alt="seta-arrow">
-            </div>
-            <div class="resultado">
-                <img id="bandeiradois" src="./assets/midia/imgDollar.png" alt="logo-moeda-convertida">
-                <p class="NomedaMoedaB">Dólar</p>
-                <p class="Valor" id="pdois">US$0,00</p>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <a href="https://www.igorlazzaretti.com">
-            <p id="texto-do-footer"> Site Criado por Igor Dossin Lazzaretti do Site igorlazzaretti.com</p>
-        </a>
-    </footer>
+
+        <iframe id="gif" src="https://giphy.com/embed/QVgU7wEY0RlV6" width="370" height="171" frameBorder="0"
+            class="giphy-embed" allowFullScreen alt="gif-logo"></iframe>
+        <main>
+            <label>
+                Converter <b>de</b>:
+                <select id="selectDE">
+                    <option value="real">R$ Real Brasileiro</option>
+                    <option value="doleta">US$ Dollar Americano</option>
+                    <option value="euro">€ Euro </option>
+                    <option value="bitcoin">฿ Bitcoin</option>
+                </select>
+            </label>
+            <label>
+                Converter <b>para</b>:
+                <select id="selectPara">
+                    <option value="doleta">US$ Dollar Americano</option>
+                    <option value="euro">€ Euro </option>
+                    <option value="bitcoin">฿ Bitcoin</option>
+                    <option value="real">R$ Real Brasileiro</option>
+                </select>
+            </label>
+            <label>
+                Valor
+                <input class="inputdigitado" placeholder="R$ 10000.00" />
+            </label>
+
+            <button>Converter</button>
+
+            <section>
+                <div class="resultado">
+                    <img id="bandeiraum" src="./assets/midia/imgBrasil.png" alt="logo-moeda-a-converter">
+                    <p class="NomedaMoedaA">Real</p>
+                    <p class="Valor" id="pum">R$0,00</p>
+                </div>
+                <div>
+                    <img id="setinha" src="./assets/midia/setinha.png" alt="seta-arrow">
+                </div>
+                <div class="resultado">
+                    <img id="bandeiradois" src="./assets/midia/imgDollar.png" alt="logo-moeda-convertida">
+                    <p class="NomedaMoedaB">Dólar</p>
+                    <p class="Valor" id="pdois">US$0,00</p>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <a href="https://www.igorlazzaretti.com">
+                <p id="texto-do-footer"><a href="https://docs.awesomeapi.com.br/api-de-moedas" target="_blank">API
+                        economia.awesomeapi</a> | <a href="https://igorlazzaretti.com" target="_blank"> desenvolvedor: Igor
+                        Lazzaretti</a></p>
+            </a>
+        </footer>
+    </ul>
 </body>
 
 </html>

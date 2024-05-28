@@ -90,29 +90,30 @@ section:hover{
     font-size: 34px;
 }
 footer{
-    background: #ffffffa6;
-    text-align: center;
-    color: #080213; 
-    width: 70%;
+    color: #d2d1d4; 
+    width: 100%;
     height: 30px;
     border-radius: 12px;
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
+    align-items: center;
+    justify-content: center;
     transition: 1s; 
 }
 
-a, #texto-do-footer, a:link, a:visited{
-    text-align: center;
-    margin: auto; text-decoration: none; color: #411358;
+a, #texto-do-footer, a:link{
+    text-align: center; text-decoration: none; 
+    color: #d2d1d4; 
+    & :hover{
+        color: #777777; 
+    }
 }
 footer:hover{
-    background: #f7f4f7;
-    color: #303030;
+
+    color: #8c6693fe;
     transition: 0.9s;
-    opacity: 80;
-    height: 45px;
-    font-size: 24px;
+    opacity: 90;
+
+
 }
 @media ( max-width: 600px) {
 footer{
@@ -122,7 +123,117 @@ footer{
             width: 92vw;
     }
     a, #texto-do-footer, a:link, a:visited{
-        color: #6d376d;
+        color: #bdadbd;
     }
     
+}
+
+
+/* Background https://wweb.dev/resources/animated-css-background-generator */
+@keyframes animate {
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: #22199e;
+    overflow: hidden;
+}
+.background li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 19s linear infinite;
+}
+
+
+
+
+.background li:nth-child(0) {
+    left: 8%;
+    width: 190px;
+    height: 190px;
+    bottom: -190px;
+    animation-delay: 1s;
+}
+.background li:nth-child(1) {
+    left: 36%;
+    width: 169px;
+    height: 169px;
+    bottom: -169px;
+    animation-delay: 4s;
+}
+.background li:nth-child(2) {
+    left: 68%;
+    width: 112px;
+    height: 112px;
+    bottom: -112px;
+    animation-delay: 3s;
+}
+.background li:nth-child(3) {
+    left: 60%;
+    width: 119px;
+    height: 119px;
+    bottom: -119px;
+    animation-delay: 8s;
+}
+.background li:nth-child(4) {
+    left: 31%;
+    width: 174px;
+    height: 174px;
+    bottom: -174px;
+    animation-delay: 15s;
+}
+.background li:nth-child(5) {
+    left: 0%;
+    width: 110px;
+    height: 110px;
+    bottom: -110px;
+    animation-delay: 7s;
+}
+.background li:nth-child(6) {
+    left: 59%;
+    width: 113px;
+    height: 113px;
+    bottom: -113px;
+    animation-delay: 17s;
+}
+.background li:nth-child(7) {
+    left: 56%;
+    width: 127px;
+    height: 127px;
+    bottom: -127px;
+    animation-delay: 32s;
+}
+.background li:nth-child(8) {
+    left: 57%;
+    width: 121px;
+    height: 121px;
+    bottom: -121px;
+    animation-delay: 21s;
+}
+.background li:nth-child(9) {
+    left: 46%;
+    width: 129px;
+    height: 129px;
+    bottom: -129px;
+    animation-delay: 18s;
 }
