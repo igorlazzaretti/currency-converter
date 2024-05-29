@@ -4,9 +4,8 @@
 <div align="center">
 
 <figure class="video_container">
- <video controls="true" allowfullscreen="true">
- <source src="./assets/midia/readme.mp4" type="video/mp4">
- </video>
+  <iframe src="./assets/midia/readme.mp4" frameborder="0" allowfullscreen="true"> 
+</iframe>
 </figure>
 </div>
 
