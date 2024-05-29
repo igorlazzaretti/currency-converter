@@ -3,7 +3,11 @@
 
 <div align="center">
 
-<iframe src="./assets/midia/readme.mp4" allowfullscreen></iframe>
+<figure class="video_container">
+ <video controls="true" allowfullscreen="true">
+ <source src="./assets/midia/readme.mp4" type="video/mp4">
+ </video>
+</figure>
 </div>
 
 ## Créditos
