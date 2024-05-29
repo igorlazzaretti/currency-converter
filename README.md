@@ -3,9 +3,7 @@
 
 <div align="center">
 
-   [![alt text](./assets/midia/readmeimg.png)](./assets/midia/readme.mp4)
-
-
+<iframe src="./assets/midia/readme.mp4" allowfullscreen></iframe>
 </div>
 
 ## Créditos
