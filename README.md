@@ -3,21 +3,37 @@
 
 <div align="center">
 
-<figure class="video_container">
-  <iframe src="./assets/midia/readme.mp4" frameborder="0" allowfullscreen="true"> 
-</iframe>
-</figure>
+
 </div>
 
-## Créditos
 
-Mais um Video do canal "DevClub | Programação" com o professor Rodolfo Mori. Aprendemos a estruturar o site com HTML, estilizar com CSS para um design moderno e responsivo, e adicionar animações dinâmicas com CSS e JavaScript para uma experiência de usuário envolvente.
+## Sobre o Curso
 
-Cada passo será explicado em detalhes para garantir sua compreensão. 
+A Formação Devclub é a formação mais completa de programação que você já viu, uma vez que você aprende do zero ao avançado para em menos de 06 meses estar atuando como um programador full stack.
 
+A Formação possui mais de 35 módulos e entre eles aulas completas de HTML, CSS, Javascript, Node, Banco de dados, React e muito mais!
+
+Sem contar com as aulas liberadas constantemente como potencializador do seu aprendizado.
+
+<div align="center">
+
+<img  width="210" src="./assets/readme/devclubico.png"> </div>
+
+
+## Sobre o Idealizador do Curso
+
+Sou ex-eletricista do Metrô de São Paulo e fiz a minha transição de carreira graças a programação. Comecei no mercado aos “trancos e barrancos”, estudando no meu tempo livre que tinha nos feriados e fins de semana para me tornar programador.
+
+Tomei 13 NÃOs antes de aparecer meu primeiro SIM, mas ele veio – mesmo sem ter faculdade! Meu primeiro emprego foi como programador no Santander, mas também já trabalhei em empresas como BTG Pactual, PI Investimentos e Toro Investimentos.
+
+Hoje o meu propósito é ajudar o máximo de pessoas a transformarem suas vidas por meio da programação.
+
+
+<div align="center">
+<img src="./assets/readme/rodolfomoriM.png" width="160" style="border-radius:60px"><br><a href="https://www.linkedin.com/in/agustinhopneto/" target="_blank">Rodolfo Mori</a>
+</div>
 <div align="center" >
 
-[![Youtube Video](./assets/readme/ytimg.png)](https://www.youtube.com/embed/AZ1drCVTDgs?si=ZqK1xzz1tXbv41AI&amp;controls=0)
 
  </div>
 
@@ -36,7 +52,7 @@ Cada passo será explicado em detalhes para garantir sua compreensão.
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Lobster&weight=600&size=30&duration=3000&pause=700&color=6e57e0&center=true&vCenter=true&random=false&width=490&height=55&lines=Ol%C3%A1!+%F0%9F%99%8B%E2%80%8D%E2%99%82%EF%B8%8F+Meu+nome+%C3%A9+Igor;Hello!+%F0%9F%91%8B+My+name+is+Igor)](https://git.io/typing-svg)
 
-<img src="./assets/images/readme/igor.png" width="190" style="border-radius:60px">
+<img src="./assets/readme/igor.png" width="190" style="border-radius:60px">
 
 </div>
 
