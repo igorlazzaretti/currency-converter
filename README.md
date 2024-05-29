@@ -1,8 +1,9 @@
-# Desafio-Conversor-de-Moedas-DevClub
+# Desafio Conversor de Moedas com API #DevClub
 
 
 <div align="center">
-   <video src="./assets/midia/readme.mp4">
+   <video src="./assets/midia/readme.mp4" width="620" height="540" controls></video>
+
 </div>
 
 ## Créditos
