@@ -6,6 +6,19 @@
 
 </div>
 
+
+## Sobre o Projeto
+
+Esse projeto Frontend faz parte do módulo Javascript do MBA FullStak do DevClub.
+
+Este projeto prático é uma forma de consolidar nossos conteúdos aprendidos até então. HTML, CSS e Javascript unidos agora com um consumo de uma API para receber os valor monetários do dia.
+
+- HTML e CSS para a estrutura do site.
+- Javascript para o funcionamento do site.
+- Awesome API busca o valor atualizado para a conversão.
+- API neste <a href="https://docs.awesomeapi.com.br/api-de-moedas"> link</a>. 
+
+
 ## Tecnologias Utilizadas
 
 <div align="center">
