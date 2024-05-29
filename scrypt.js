@@ -13,19 +13,6 @@ const varpdois = document.querySelector('#pdois')
 const varimagemUm = document.querySelector('#bandeiraum')
 const varimagemDois = document.querySelector('#bandeiradois')
 
-// MINHAS CONSTANTES - Quanto vale um MoedaPARA em MoedaDE
-const varbitcoinHoje = 125001.67
-const vareuroHoje = 5.24
-const vardolarHoje = 4.92
-const varDollarEuroHoje = 1.06
-const varDollarBitcoinHoje = 29799.53
-const varEuroDollarHoje = 0.945548
-const varEuroBitcoinHoje = 27971.64
-const varEuroRealHoje = 0.1874
-const varBitcoinDollarHoje = 0.000033552
-const varBitcoinEuroHoje = 0.000036
-const varBitcoinReal = 0.00000673
-
 const varValorDigitadonoInput = document.querySelector('.inputdigitado')
 
 const varbotaoConverter = document.querySelector('button')
@@ -33,16 +20,28 @@ varbotaoConverter.addEventListener('click', funcaoCliquei)
 async function funcaoCliquei() {
   const varSelectPara = document.querySelector('#selectPara')
 
-  const data = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL,BRL-USD,EUR-USD,BTC-USD').then((response) => response.json())
+  const data = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL,BRL-USD,EUR-USD,BTC-USD,BRL-EUR,USD-EUR,BTC-EUR,ARS-BRL,ARS-USD,ARS-EUR,BRL-ARS').then((response) => response.json())
 
 
   const realDolar = data.USDBRL.high
   const realEuro = data.EURBRL.high
   const realBitcoin = data.BTCBRL.high
+  const realPeso = data.ARSBRL.high
 
   const dolarReal = data.BRLUSD.high
   const dolarEuro = data.EURUSD.high
   const dolarBitcoin = data.BTCUSD.high
+  const dolarPeso = data.ARSUSD.high
+
+  const euroReal = data.BRLEUR.high
+  const euroDolar = data.USDEUR.high
+  const euroBitcoin = data.BTCEUR.high
+  const euroPeso = data.ARSEUR.high
+
+  const pesoReal = data.BRLARS.high
+  const pesoDolar = data.BRLARS.high
+  const pesoEuro = data.BRLARS.high
+  const pesoBitcoin = data.BRLARS.high
   
    // REAL
   // Real para Dollar //
@@ -104,6 +103,21 @@ async function funcaoCliquei() {
     varimagemUm.src = './assets/midia/imgBrasil.png'
     varimagemDois.src = './assets/midia/imgWalter.PNG'
   }
+   // Real para Peso
+  if (varSelectDe.value == 'real' && varSelectPara.value == 'peso') {
+    varpum.innerHTML = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(varValorDigitadonoInput.value)
+    varpdois.innerHTML = new Intl.NumberFormat('es-AR', {
+      style: 'currency',
+      currency: 'ARS',
+    }).format(varValorDigitadonoInput.value / realPeso)
+    varNomeMoedaB.innerHTML = 'Peso'
+    varNomeMoedaA.innerHTML = 'Real'
+    varimagemUm.src = './assets/midia/imgBrasil.png'
+    varimagemDois.src = './assets/midia/imgPeso.png'
+  }
   // Do Dollar para Real //
   if (varSelectDe.value == 'doleta' && varSelectPara.value == 'real') {
     varpum.innerHTML = new Intl.NumberFormat('en-US', {
@@ -153,6 +167,22 @@ async function funcaoCliquei() {
     varimagemUm.src = './assets/midia/imgDollar.png'
     varimagemDois.src = './assets/midia/imgBitcoin.png'
   }
+  // do Dollar para Peso //
+  if (varSelectDe.value == 'doleta' && varSelectPara.value == 'peso') {
+    varpum.innerHTML = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    }).format(varValorDigitadonoInput.value)
+    const varResultadoDB = varValorDigitadonoInput.value / dolarPeso
+    varpdois.innerHTML = new Intl.NumberFormat('es-AR', {
+      style: 'currency',
+      currency: 'ARS',
+    }).format(varResultadoDB)
+    varNomeMoedaA.innerHTML = 'Dólar'
+    varNomeMoedaB.innerHTML = 'Peso'
+    varimagemUm.src = './assets/midia/imgDollar.png'
+    varimagemDois.src = './assets/midia/imgPeso.png'
+  }
   // do Dollar para Dollar
   if (varSelectDe.value == 'doleta' && varSelectPara.value == 'doleta') {
     varpum.innerHTML = new Intl.NumberFormat('pt-BR', {
@@ -165,13 +195,14 @@ async function funcaoCliquei() {
     varimagemUm.src = './assets/midia/imgDollar.png'
     varimagemDois.src = './assets/midia/imgWalter.PNG'
   }
+   // EURO
   // do Euro para Dollar
   if (varSelectDe.value == 'euro' && varSelectPara.value == 'doleta') {
     varpum.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR',
     }).format(varValorDigitadonoInput.value)
-    const varResultadoED = varValorDigitadonoInput.value / varEuroDollarHoje
+    const varResultadoED = varValorDigitadonoInput.value / euroDolar
     varpdois.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -199,7 +230,7 @@ async function funcaoCliquei() {
       style: 'currency',
       currency: 'EUR',
     }).format(varValorDigitadonoInput.value)
-    const varResultadoED = varValorDigitadonoInput.value / varEuroBitcoinHoje
+    const varResultadoED = varValorDigitadonoInput.value / euroBitcoin
     varpdois.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -216,7 +247,7 @@ async function funcaoCliquei() {
       style: 'currency',
       currency: 'EUR',
     }).format(varValorDigitadonoInput.value)
-    const varResultadoED = varValorDigitadonoInput.value / varEuroRealHoje
+    const varResultadoED = varValorDigitadonoInput.value / euroReal
     varpdois.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -226,6 +257,22 @@ async function funcaoCliquei() {
     varimagemUm.src = './assets/midia/imgEuro.png'
     varimagemDois.src = './assets/midia/imgBrasil.png'
   }
+    // do Euro para Peso
+    if (varSelectDe.value == 'euro' && varSelectPara.value == 'peso') {
+      varpum.innerHTML = new Intl.NumberFormat('de-DE', {
+        style: 'currency',
+        currency: 'EUR',
+      }).format(varValorDigitadonoInput.value)
+      const varResultadoED = varValorDigitadonoInput.value / euroPeso
+      varpdois.innerHTML = new Intl.NumberFormat('es-AR', {
+        style: 'currency',
+        currency: 'ARS',
+      }).format(varResultadoED)
+      varNomeMoedaA.innerHTML = 'Euro'
+      varNomeMoedaB.innerHTML = 'Peso'
+      varimagemUm.src = './assets/midia/imgEuro.png'
+      varimagemDois.src = './assets/midia/imgPeso.png'
+    }
 
   // BITCOIN
   // do Bitcoin para Dollar //
@@ -250,7 +297,7 @@ async function funcaoCliquei() {
       style: 'currency',
       currency: 'BIT',
     }).format(varValorDigitadonoInput.value)
-    const varResultadoBE = varValorDigitadonoInput.value / bitcoinEuro
+    const varResultadoBE = euroBitcoin / varValorDigitadonoInput.value
     varpdois.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR',
@@ -278,7 +325,7 @@ async function funcaoCliquei() {
       style: 'currency',
       currency: 'BIT',
     }).format(varValorDigitadonoInput.value)
-    const varResultadoBR = varValorDigitadonoInput.value / bitcoinReal
+    const varResultadoBR = realBitcoin / varValorDigitadonoInput.value
     varpdois.innerHTML = new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
