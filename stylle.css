@@ -49,7 +49,7 @@ input {
 select:hover,
 button:hover {
   transition: 0.8s;
-  background: #ce72ce;
+  background: #B4BA32;
   height: 48px;
 }
 input {
@@ -63,13 +63,13 @@ input:hover {
   opacity: 1;
 }
 button {
-  background: #d083d0;
+  background: rgb(34, 25, 158);
   border: none;
   color: #ffffff;
   padding-left: 0px;
 }
 button:hover {
-  background: #8044d5;
+  background: #B4BA32;
   opacity: 0.8;
   transition: 1s;
   opacity: 0.8;
@@ -181,7 +181,7 @@ a:link {
   animation: slide 7s ease-in-out infinite alternate;
   background-image: linear-gradient(
     -60deg,
-    #8c6693fe 50%,
+    #dae066 50%,
     rgb(34, 25, 158) 50%
   );
   bottom: 0;

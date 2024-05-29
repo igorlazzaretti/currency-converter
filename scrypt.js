@@ -20,8 +20,9 @@ varbotaoConverter.addEventListener('click', funcaoCliquei)
 async function funcaoCliquei() {
   const varSelectPara = document.querySelector('#selectPara')
 
-  const data = await fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL,BRL-USD,EUR-USD,BTC-USD,BRL-EUR,USD-EUR,BTC-EUR,ARS-BRL,ARS-USD,ARS-EUR,BRL-ARS').then((response) => response.json())
-
+  const data = await fetch(
+    'https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL,BRL-USD,EUR-USD,BTC-USD,BRL-EUR,USD-EUR,BTC-EUR,ARS-BRL,ARS-USD,ARS-EUR,BRL-ARS,USD-ARS,EUR-ARS,BRL-ARS'
+  ).then((response) => response.json())
 
   const realDolar = data.USDBRL.high
   const realEuro = data.EURBRL.high
@@ -39,11 +40,11 @@ async function funcaoCliquei() {
   const euroPeso = data.ARSEUR.high
 
   const pesoReal = data.BRLARS.high
-  const pesoDolar = data.BRLARS.high
-  const pesoEuro = data.BRLARS.high
-  const pesoBitcoin = data.BRLARS.high
-  
-   // REAL
+  const pesoDolar = data.USDARS.high
+  const pesoEuro = data.EURARS.high
+  // Not in API const pesoBitcoin = data.BTCARS.high
+
+  // REAL ====================================
   // Real para Dollar //
   if (varSelectDe.value == 'real' && varSelectPara.value == 'doleta') {
     varpum.innerHTML = new Intl.NumberFormat('pt-BR', {
@@ -103,7 +104,7 @@ async function funcaoCliquei() {
     varimagemUm.src = './assets/midia/imgBrasil.png'
     varimagemDois.src = './assets/midia/imgWalter.PNG'
   }
-   // Real para Peso
+  // Real para Peso
   if (varSelectDe.value == 'real' && varSelectPara.value == 'peso') {
     varpum.innerHTML = new Intl.NumberFormat('pt-BR', {
       style: 'currency',
@@ -118,6 +119,7 @@ async function funcaoCliquei() {
     varimagemUm.src = './assets/midia/imgBrasil.png'
     varimagemDois.src = './assets/midia/imgPeso.png'
   }
+  // Dollar ====================================
   // Do Dollar para Real //
   if (varSelectDe.value == 'doleta' && varSelectPara.value == 'real') {
     varpum.innerHTML = new Intl.NumberFormat('en-US', {
@@ -195,7 +197,7 @@ async function funcaoCliquei() {
     varimagemUm.src = './assets/midia/imgDollar.png'
     varimagemDois.src = './assets/midia/imgWalter.PNG'
   }
-   // EURO
+  // EURO   ====================================
   // do Euro para Dollar
   if (varSelectDe.value == 'euro' && varSelectPara.value == 'doleta') {
     varpum.innerHTML = new Intl.NumberFormat('de-DE', {
@@ -257,24 +259,23 @@ async function funcaoCliquei() {
     varimagemUm.src = './assets/midia/imgEuro.png'
     varimagemDois.src = './assets/midia/imgBrasil.png'
   }
-    // do Euro para Peso
-    if (varSelectDe.value == 'euro' && varSelectPara.value == 'peso') {
-      varpum.innerHTML = new Intl.NumberFormat('de-DE', {
-        style: 'currency',
-        currency: 'EUR',
-      }).format(varValorDigitadonoInput.value)
-      const varResultadoED = varValorDigitadonoInput.value / euroPeso
-      varpdois.innerHTML = new Intl.NumberFormat('es-AR', {
-        style: 'currency',
-        currency: 'ARS',
-      }).format(varResultadoED)
-      varNomeMoedaA.innerHTML = 'Euro'
-      varNomeMoedaB.innerHTML = 'Peso'
-      varimagemUm.src = './assets/midia/imgEuro.png'
-      varimagemDois.src = './assets/midia/imgPeso.png'
-    }
-
-  // BITCOIN
+  // do Euro para Peso
+  if (varSelectDe.value == 'euro' && varSelectPara.value == 'peso') {
+    varpum.innerHTML = new Intl.NumberFormat('de-DE', {
+      style: 'currency',
+      currency: 'EUR',
+    }).format(varValorDigitadonoInput.value)
+    const varResultadoED = varValorDigitadonoInput.value / euroPeso
+    varpdois.innerHTML = new Intl.NumberFormat('es-AR', {
+      style: 'currency',
+      currency: 'ARS',
+    }).format(varResultadoED)
+    varNomeMoedaA.innerHTML = 'Euro'
+    varNomeMoedaB.innerHTML = 'Peso'
+    varimagemUm.src = './assets/midia/imgEuro.png'
+    varimagemDois.src = './assets/midia/imgPeso.png'
+  }
+  // BITCOIN ========================================
   // do Bitcoin para Dollar //
   if (varSelectDe.value == 'bitcoin' && varSelectPara.value == 'doleta') {
     varpum.innerHTML = new Intl.NumberFormat('de-DE', {
@@ -334,5 +335,104 @@ async function funcaoCliquei() {
     varNomeMoedaB.innerHTML = 'Real'
     varimagemUm.src = './assets/midia/imgBitcoin.png'
     varimagemDois.src = './assets/midia/imgBrasil.png'
+  }
+  //Bitcoin Para Peso
+  if (varSelectDe.value == 'bitcoin' && varSelectPara.value == 'peso') {
+    varpum.innerHTML = new Intl.NumberFormat('de-DE', {
+      style: 'currency',
+      currency: 'BIT',
+    }).format(varValorDigitadonoInput.value)
+    const varResultadoBR = realBitcoin / varValorDigitadonoInput.value
+    const varResultadoBitPeso = varResultadoBR / realPeso
+    varpdois.innerHTML = new Intl.NumberFormat('es-AR', {
+      style: 'currency',
+      currency: 'ARS',
+    }).format(varResultadoBitPeso)
+    varNomeMoedaA.innerHTML = 'Bitcoin'
+    varNomeMoedaB.innerHTML = 'Peso'
+    varimagemUm.src = './assets/midia/imgBitcoin.png'
+    varimagemDois.src = './assets/midia/imgPeso.png'
+  }
+  // Peso ========================================
+  //Peso para Dolar
+  if (varSelectDe.value == 'peso' && varSelectPara.value == 'doleta') {
+    varpum.innerHTML = new Intl.NumberFormat('es-AR', {
+      style: 'currency',
+      currency: 'ARS',
+    }).format(varValorDigitadonoInput.value)
+    const varResultadoPesoDolar = varValorDigitadonoInput.value / pesoDolar
+    varpdois.innerHTML = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 5,
+    }).format(varResultadoPesoDolar)
+    varNomeMoedaA.innerHTML = 'Peso'
+    varNomeMoedaB.innerHTML = 'Dólar'
+    varimagemUm.src = './assets/midia/imgPeso.png'
+    varimagemDois.src = './assets/midia/imgDollar.png'
+  }
+  //Peso para Euro
+  if (varSelectDe.value == 'peso' && varSelectPara.value == 'euro') {
+    varpum.innerHTML = new Intl.NumberFormat('es-AR', {
+      style: 'currency',
+      currency: 'ARS',
+    }).format(varValorDigitadonoInput.value)
+    const varResultadoPesoEuro = varValorDigitadonoInput.value / pesoEuro
+    varpdois.innerHTML = new Intl.NumberFormat('de-DE', {
+      style: 'currency',
+      currency: 'EUR',
+      maximumFractionDigits: 5,
+    }).format(varResultadoPesoEuro)
+    varNomeMoedaA.innerHTML = 'Peso'
+    varNomeMoedaB.innerHTML = 'Euro'
+    varimagemUm.src = './assets/midia/imgPeso.png'
+    varimagemDois.src = './assets/midia/imgEuro.png'
+  }
+  //Peso para Bitcoin
+  if (varSelectDe.value == 'peso' && varSelectPara.value == 'bitcoin') {
+    varpum.innerHTML = new Intl.NumberFormat('es-AR', {
+      style: 'currency',
+      currency: 'ARS',
+    }).format(varValorDigitadonoInput.value)
+    const varPesoDolar = varValorDigitadonoInput.value / pesoDolar
+    const varResultadoDolarBitcoin = varPesoDolar / dolarBitcoin
+    varpdois.innerHTML = new Intl.NumberFormat('de-DE', {
+      style: 'currency',
+      currency: 'EUR',
+      maximumFractionDigits: 5,
+    }).format(varResultadoDolarBitcoin)
+    varNomeMoedaA.innerHTML = 'Peso'
+    varNomeMoedaB.innerHTML = 'Euro'
+    varimagemUm.src = './assets/midia/imgPeso.png'
+    varimagemDois.src = './assets/midia/imgBitcoin.png'
+  }
+  //Peso para Real
+  if (varSelectDe.value == 'peso' && varSelectPara.value == 'real') {
+    varpum.innerHTML = new Intl.NumberFormat('es-AR', {
+      style: 'currency',
+      currency: 'ARS',
+    }).format(varValorDigitadonoInput.value)
+    const varResultadoPesoReal = varValorDigitadonoInput.value / pesoReal
+    varpdois.innerHTML = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+      maximumFractionDigits: 5,
+    }).format(varResultadoPesoReal)
+    varNomeMoedaA.innerHTML = 'Peso'
+    varNomeMoedaB.innerHTML = 'Real'
+    varimagemUm.src = './assets/midia/imgPeso.png'
+    varimagemDois.src = './assets/midia/imgBrasil.png'
+  }
+  //Peso para Peso
+  if (varSelectDe.value == 'peso' && varSelectPara.value == 'peso') {
+    varpum.innerHTML = new Intl.NumberFormat('es-AR', {
+      style: 'currency',
+      currency: 'ARS',
+    }).format(varValorDigitadonoInput.value)
+    varpdois.innerHTML = ' '
+    varNomeMoedaB.innerHTML = 'You are God damn right'
+    varNomeMoedaA.innerHTML = 'Peso'
+    varimagemUm.src = './assets/midia/imgPeso.png'
+    varimagemDois.src = './assets/midia/imgWalter.PNG'
   }
 }
