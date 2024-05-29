@@ -2,7 +2,9 @@
 
 
 <div align="center">
-   <video src="./assets/midia/readme.mp4" width="620" height="540" controls></video>
+
+   [![alt text](./assets/midia/readmeimg.png)](./assets/midia/readme.mp4)
+
 
 </div>
 
