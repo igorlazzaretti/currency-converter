@@ -1,6 +1,6 @@
 <!--
 :currency_exchange: Currency Converter
-Message: Hover color and NAN result
+Message: igorlazzaretti.com
  -->
 
 <div align="center">
