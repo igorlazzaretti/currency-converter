@@ -1,6 +1,6 @@
 <!--
-  :currency_exchange: Currency Converter
-  Message: Update Scrypt
+:currency_exchange: Currency Converter
+Message: Hover color and NAN result
  -->
 
 <div align="center">

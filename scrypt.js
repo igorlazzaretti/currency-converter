@@ -14,11 +14,44 @@ const varimagemUm = document.querySelector('#bandeiraum')
 const varimagemDois = document.querySelector('#bandeiradois')
 
 const varValorDigitadonoInput = document.querySelector('.inputdigitado')
+const arrow = document.querySelector('#setinha')
 
 const varbotaoConverter = document.querySelector('button')
 varbotaoConverter.addEventListener('click', funcaoCliquei)
+
+// Botão Enter para Converter
+varValorDigitadonoInput.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault() // Impede o comportamento padrão do Enter (como submeter um formulário)
+    varbotaoConverter.click() // Simula o clique no botão
+  }
+})
+
 async function funcaoCliquei() {
   const varSelectPara = document.querySelector('#selectPara')
+  const valorInput = varValorDigitadonoInput.value.replace(',', '.')
+  const valorNumerico = parseFloat(valorInput)
+
+  // Reseta a interface para o estado padrão a cada clique
+  varNomeMoedaB.style.display = ''
+  varimagemUm.style.width = ''
+  varimagemUm.style.height = ''
+  varimagemDois.style.display = ''
+  arrow.style.display = ''
+  // --- Fim do reset
+
+  if (isNaN(valorNumerico)) {
+    varpum.innerHTML = ''
+    varpdois.innerHTML = ''
+    varNomeMoedaA.innerHTML = 'Digite um valor válido'
+    varNomeMoedaB.style = 'display: none'
+    varimagemUm.src = './assets/midia/nan.gif'
+    varimagemUm.style = 'width: 250px; height: 250px;'
+    varimagemDois.style = 'display: none'
+    arrow.style = 'display: none'
+    varimagemUm.alt = 'Imagem de erro: valor inválido'
+    return // Para a execução da função aqui
+  }
 
   const data = await fetch(
     'https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL,BRL-USD,EUR-USD,BTC-USD,BRL-EUR,USD-EUR,BTC-EUR,ARS-BRL,ARS-USD,ARS-EUR,BRL-ARS,USD-ARS,EUR-ARS,BRL-ARS'
@@ -50,8 +83,8 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
-    }).format(varValorDigitadonoInput.value)
-    const varResultadoRD = varValorDigitadonoInput.value / realDolar
+    }).format(valorNumerico)
+    const varResultadoRD = valorNumerico / realDolar
     varpdois.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -66,11 +99,11 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
-    }).format(varValorDigitadonoInput.value)
+    }).format(valorNumerico)
     varpdois.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR',
-    }).format(varValorDigitadonoInput.value / realEuro)
+    }).format(valorNumerico / realEuro)
     varNomeMoedaA.innerHTML = 'Real'
     varNomeMoedaB.innerHTML = 'Euro'
     varimagemUm.src = './assets/midia/imgBrasil.png'
@@ -81,12 +114,12 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
-    }).format(varValorDigitadonoInput.value)
+    }).format(valorNumerico)
     varpdois.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'BIT',
       maximumFractionDigits: 10,
-    }).format(varValorDigitadonoInput.value / realBitcoin)
+    }).format(valorNumerico / realBitcoin)
     varNomeMoedaB.innerHTML = 'Bitcoin'
     varNomeMoedaA.innerHTML = 'Real'
     varimagemUm.src = './assets/midia/imgBrasil.png'
@@ -97,7 +130,7 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
-    }).format(varValorDigitadonoInput.value)
+    }).format(valorNumerico)
     varpdois.innerHTML = ' '
     varNomeMoedaB.innerHTML = 'You are God damn right'
     varNomeMoedaA.innerHTML = 'Real'
@@ -109,11 +142,11 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
-    }).format(varValorDigitadonoInput.value)
+    }).format(valorNumerico)
     varpdois.innerHTML = new Intl.NumberFormat('es-AR', {
       style: 'currency',
       currency: 'ARS',
-    }).format(varValorDigitadonoInput.value / realPeso)
+    }).format(valorNumerico / realPeso)
     varNomeMoedaB.innerHTML = 'Peso'
     varNomeMoedaA.innerHTML = 'Real'
     varimagemUm.src = './assets/midia/imgBrasil.png'
@@ -125,8 +158,8 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-    }).format(varValorDigitadonoInput.value)
-    const varResultadoDR = varValorDigitadonoInput.value / dolarReal
+    }).format(valorNumerico)
+    const varResultadoDR = valorNumerico / dolarReal
     varpdois.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -141,8 +174,8 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-    }).format(varValorDigitadonoInput.value)
-    const varResultadoDE = varValorDigitadonoInput.value / dolarEuro
+    }).format(valorNumerico)
+    const varResultadoDE = valorNumerico / dolarEuro
     varpdois.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -157,8 +190,8 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-    }).format(varValorDigitadonoInput.value)
-    const varResultadoDB = varValorDigitadonoInput.value / dolarBitcoin
+    }).format(valorNumerico)
+    const varResultadoDB = valorNumerico / dolarBitcoin
     varpdois.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'BIT',
@@ -174,8 +207,8 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-    }).format(varValorDigitadonoInput.value)
-    const varResultadoDB = varValorDigitadonoInput.value / dolarPeso
+    }).format(valorNumerico)
+    const varResultadoDB = valorNumerico / dolarPeso
     varpdois.innerHTML = new Intl.NumberFormat('es-AR', {
       style: 'currency',
       currency: 'ARS',
@@ -190,7 +223,7 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
-    }).format(varValorDigitadonoInput.value)
+    }).format(valorNumerico)
     varpdois.innerHTML = ' '
     varNomeMoedaB.innerHTML = 'You are God damn right'
     varNomeMoedaA.innerHTML = 'Dólar'
@@ -203,8 +236,8 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR',
-    }).format(varValorDigitadonoInput.value)
-    const varResultadoED = varValorDigitadonoInput.value / euroDolar
+    }).format(valorNumerico)
+    const varResultadoED = valorNumerico / euroDolar
     varpdois.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -219,7 +252,7 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR',
-    }).format(varValorDigitadonoInput.value)
+    }).format(valorNumerico)
     varpdois.innerHTML = ' '
     varNomeMoedaB.innerHTML = 'You are God damn right'
     varNomeMoedaA.innerHTML = 'Euro'
@@ -231,8 +264,8 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR',
-    }).format(varValorDigitadonoInput.value)
-    const varResultadoED = varValorDigitadonoInput.value / euroBitcoin
+    }).format(valorNumerico)
+    const varResultadoED = valorNumerico / euroBitcoin
     varpdois.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -248,8 +281,8 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR',
-    }).format(varValorDigitadonoInput.value)
-    const varResultadoED = varValorDigitadonoInput.value / euroReal
+    }).format(valorNumerico)
+    const varResultadoED = valorNumerico / euroReal
     varpdois.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -264,8 +297,8 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR',
-    }).format(varValorDigitadonoInput.value)
-    const varResultadoED = varValorDigitadonoInput.value / euroPeso
+    }).format(valorNumerico)
+    const varResultadoED = valorNumerico / euroPeso
     varpdois.innerHTML = new Intl.NumberFormat('es-AR', {
       style: 'currency',
       currency: 'ARS',
@@ -281,8 +314,8 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'BIT',
-    }).format(varValorDigitadonoInput.value)
-    const varResultadoBD = dolarBitcoin / varValorDigitadonoInput.value
+    }).format(valorNumerico)
+    const varResultadoBD = dolarBitcoin / valorNumerico
     varpdois.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -297,8 +330,8 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'BIT',
-    }).format(varValorDigitadonoInput.value)
-    const varResultadoBE = euroBitcoin / varValorDigitadonoInput.value
+    }).format(valorNumerico)
+    const varResultadoBE = euroBitcoin / valorNumerico
     varpdois.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR',
@@ -313,7 +346,7 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'BIT',
-    }).format(varValorDigitadonoInput.value)
+    }).format(valorNumerico)
     varpdois.innerHTML = ' '
     varNomeMoedaB.innerHTML = 'You are God damn right'
     varNomeMoedaA.innerHTML = 'Bitcoin'
@@ -325,8 +358,8 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'BIT',
-    }).format(varValorDigitadonoInput.value)
-    const varResultadoBR = realBitcoin / varValorDigitadonoInput.value
+    }).format(valorNumerico)
+    const varResultadoBR = realBitcoin / valorNumerico
     varpdois.innerHTML = new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
@@ -341,8 +374,8 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'BIT',
-    }).format(varValorDigitadonoInput.value)
-    const varResultadoBR = realBitcoin / varValorDigitadonoInput.value
+    }).format(valorNumerico)
+    const varResultadoBR = realBitcoin / valorNumerico
     const varResultadoBitPeso = varResultadoBR / realPeso
     varpdois.innerHTML = new Intl.NumberFormat('es-AR', {
       style: 'currency',
@@ -359,8 +392,8 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('es-AR', {
       style: 'currency',
       currency: 'ARS',
-    }).format(varValorDigitadonoInput.value)
-    const varResultadoPesoDolar = varValorDigitadonoInput.value / pesoDolar
+    }).format(valorNumerico)
+    const varResultadoPesoDolar = valorNumerico / pesoDolar
     varpdois.innerHTML = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -376,8 +409,8 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('es-AR', {
       style: 'currency',
       currency: 'ARS',
-    }).format(varValorDigitadonoInput.value)
-    const varResultadoPesoEuro = varValorDigitadonoInput.value / pesoEuro
+    }).format(valorNumerico)
+    const varResultadoPesoEuro = valorNumerico / pesoEuro
     varpdois.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR',
@@ -393,8 +426,8 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('es-AR', {
       style: 'currency',
       currency: 'ARS',
-    }).format(varValorDigitadonoInput.value)
-    const varPesoDolar = varValorDigitadonoInput.value / pesoDolar
+    }).format(valorNumerico)
+    const varPesoDolar = valorNumerico / pesoDolar
     const varResultadoDolarBitcoin = varPesoDolar / dolarBitcoin
     varpdois.innerHTML = new Intl.NumberFormat('de-DE', {
       style: 'currency',
@@ -411,8 +444,8 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('es-AR', {
       style: 'currency',
       currency: 'ARS',
-    }).format(varValorDigitadonoInput.value)
-    const varResultadoPesoReal = varValorDigitadonoInput.value / pesoReal
+    }).format(valorNumerico)
+    const varResultadoPesoReal = valorNumerico / pesoReal
     varpdois.innerHTML = new Intl.NumberFormat('pt-BR', {
       style: 'currency',
       currency: 'BRL',
@@ -428,7 +461,7 @@ async function funcaoCliquei() {
     varpum.innerHTML = new Intl.NumberFormat('es-AR', {
       style: 'currency',
       currency: 'ARS',
-    }).format(varValorDigitadonoInput.value)
+    }).format(valorNumerico)
     varpdois.innerHTML = ' '
     varNomeMoedaB.innerHTML = 'You are God damn right'
     varNomeMoedaA.innerHTML = 'Peso'

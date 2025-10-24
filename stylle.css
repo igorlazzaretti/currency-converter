@@ -49,7 +49,7 @@ input {
 select:hover,
 button:hover {
   transition: 0.8s;
-  background: #B4BA32;
+  background: #ad93ca;
   height: 48px;
 }
 input {
@@ -69,14 +69,14 @@ button {
   padding-left: 0px;
 }
 button:hover {
-  background: #B4BA32;
+  background: #d152d1;
   opacity: 0.8;
   transition: 1s;
   opacity: 0.8;
 }
 button:active {
   opacity: 0.5;
-  transition: 0.3s;
+  scale: 0.98;
 }
 section {
   border: 1px solid rgb(34, 25, 158);
