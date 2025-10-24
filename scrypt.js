@@ -133,8 +133,8 @@ async function funcaoCliquei() {
     }).format(varResultadoDR)
     varNomeMoedaA.innerHTML = 'Dólar'
     varNomeMoedaB.innerHTML = 'Real'
-    varimagemUm.src = '../assets/midia/imgDollar.png'
-    varimagemDois.src = '../assets/midia/imgBrasil.png'
+    varimagemUm.src = './assets/midia/imgDollar.png'
+    varimagemDois.src = './assets/midia/imgBrasil.png'
   }
   // do Dollar para Euro //
   if (varSelectDe.value == 'doleta' && varSelectPara.value == 'euro') {
@@ -149,8 +149,8 @@ async function funcaoCliquei() {
     }).format(varResultadoDE)
     varNomeMoedaA.innerHTML = 'Dólar'
     varNomeMoedaB.innerHTML = 'Euro'
-    varimagemUm.src = '../assets/midia/imgDollar.png'
-    varimagemDois.src = '../assets/midia/imgEuro.png'
+    varimagemUm.src = './assets/midia/imgDollar.png'
+    varimagemDois.src = './assets/midia/imgEuro.png'
   }
   // do Dollar para Bictoin //
   if (varSelectDe.value == 'doleta' && varSelectPara.value == 'bitcoin') {

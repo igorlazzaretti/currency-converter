@@ -1,11 +1,8 @@
 <!--
   :currency_exchange: Currency Converter
-  Message: Update Readme and Footer
+  Message: Update Scrypt
  -->
 
-<div align="center">
-  <img src="https://igorlazzaretti.com/assets/img/igor-perfil-mascara-ondulada.webp">
-</div>
 <div align="center">
   <img src="https://igorlazzaretti.github.io/currency-converter/assets/midia/gif-capa-currency.gif">
 </div>
