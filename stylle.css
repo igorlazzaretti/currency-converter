@@ -7,7 +7,7 @@
 
 body {
   background-color: rgb(34, 25, 158);
-  height: 90vh;
+  height: 100vh;
 }
 #gif {
   margin-left: auto;
@@ -117,27 +117,6 @@ section:hover {
 #pdois {
   font-size: 32px;
 }
-footer {
-  color: #d2d1d4;
-  width: 100%;
-  height: 10px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 1s;
-}
-
-a,
-#texto-do-footer,
-a:link {
-  text-align: center;
-  text-decoration: none;
-  color: #d2d1d4;
-  & :hover {
-    color: #ffffff;
-  }
-}
 
 @media (max-width: 600px) {
   #gif {
@@ -181,7 +160,7 @@ a:link {
   animation: slide 7s ease-in-out infinite alternate;
   background-image: linear-gradient(
     -60deg,
-    #dae066 50%,
+    #ffffff 50%,
     rgb(34, 25, 158) 50%
   );
   bottom: 0;
@@ -205,7 +184,6 @@ a:link {
 
 .content {
   border-radius: 0.25em;
-
   box-sizing: border-box;
   position: flex;
   justify-self: center;
